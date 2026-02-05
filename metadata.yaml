@@ -1,0 +1,8 @@
+# Google Tag Manager Community Template Gallery metadata
+# See: https://developers.google.com/tag-platform/tag-manager/templates/gallery
+
+homepage: "https://github.com/Conviva/conviva-js-script-appanalytics"
+documentation: "https://github.com/Conviva/conviva-js-script-appanalytics"
+versions:
+  - sha: "initial"
+    changeNotes: "Initial release. Conviva AppAnalytics Browser SDK tag: Initialize, Set User ID, Track Page View, Track Custom Event, Set/Unset Custom Tags, Track Error."
