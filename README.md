@@ -4,6 +4,8 @@ Deploy the [Conviva JavaScript DPI SDK](https://github.com/Conviva/conviva-js-sc
 
 ## Installation
 
+For a full container setup (variables, tags, triggers, and dataLayer event names), see **[GTM_SETUP.md](GTM_SETUP.md)**.
+
 1. **Import the template** into your GTM container:
    - In GTM: **Templates** → **Tag Configuration** → **New** → **Import** and select the `template.tpl` file,  
    - Or install from the **Community Template Gallery** (when published): search for "Conviva AppAnalytics" and add the tag type.
@@ -57,7 +59,7 @@ Sends a custom event with fixed name `conviva_revenue_event` and data suitable f
 
 - **Total order amount*** – Required.
 - **Order ID (transaction ID)*** – Required.
-- **Optional:** Currency, Tax amount, Shipping cost, Discount/coupon value, Cart size, Purchased items (table: Product ID, Name, SKU, Category, Unit price, Quantity, Discount, Brand, Variant), Payment method, Payment provider, Order status.
+- **Optional:** Currency, Tax amount, Shipping cost, Discount/coupon value, Cart size, **Purchased items (variable)** – GTM variable that returns an array of line-item objects (recommended keys per item: productId, name, sku, category, unitPrice, quantity, discount, brand, variant), Payment method, Payment provider, Order status.
 - **Additional metadata** – Key/value table for any extra fields.
 - **Revenue data object (variable)** – Optional variable returning an object; merged with the above.
 

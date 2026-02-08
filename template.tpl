@@ -712,21 +712,14 @@ ___TEMPLATE_PARAMETERS___
     ]
   },
   {
-    "displayName": "Purchased items (line items)",
-    "name": "revenueItemsTable",
-    "simpleTableColumns": [
-      { "defaultValue": "", "displayName": "Product ID", "name": "productId", "type": "TEXT" },
-      { "defaultValue": "", "displayName": "Name", "name": "name", "type": "TEXT" },
-      { "defaultValue": "", "displayName": "SKU", "name": "sku", "type": "TEXT" },
-      { "defaultValue": "", "displayName": "Category", "name": "category", "type": "TEXT" },
-      { "defaultValue": "", "displayName": "Unit price", "name": "unitPrice", "type": "TEXT" },
-      { "defaultValue": "", "displayName": "Quantity", "name": "quantity", "type": "TEXT" },
-      { "defaultValue": "", "displayName": "Discount", "name": "discount", "type": "TEXT" },
-      { "defaultValue": "", "displayName": "Brand", "name": "brand", "type": "TEXT" },
-      { "defaultValue": "", "displayName": "Variant", "name": "variant", "type": "TEXT" }
-    ],
-    "type": "SIMPLE_TABLE",
-    "newRowButtonText": "Add item",
+    "type": "SELECT",
+    "name": "revenueItemsList",
+    "displayName": "Purchased items (variable)",
+    "macrosInSelect": true,
+    "selectItems": [],
+    "simpleValueType": true,
+    "notSetText": "Don't set",
+    "help": "GTM variable that returns an array of line-item objects. Passed through as-is to the event. Recommended keys per item (for backend): productId, name, sku, category, unitPrice, quantity, discount, brand, variant; other keys are sent as-is and can be mapped in the backend.",
     "enablingConditions": [
       { "paramName": "type", "paramValue": "trackRevenue", "type": "EQUALS" }
     ]
@@ -825,6 +818,23 @@ ___TEMPLATE_PARAMETERS___
     ]
   },
   {
+    "type": "SELECT",
+    "name": "setCustomTagsObject",
+    "displayName": "Custom Tags (variable)",
+    "macrosInSelect": true,
+    "selectItems": [],
+    "simpleValueType": true,
+    "help": "Optional: select a GTM variable that returns an object (e.g. {{Conviva – Custom Tags}}). Merged with the table above if both set.",
+    "notSetText": "Don't set",
+    "enablingConditions": [
+      {
+        "paramName": "type",
+        "paramValue": "setCustomTags",
+        "type": "EQUALS"
+      }
+    ]
+  },
+  {
     "help": "Comma-separated list of tag keys to unset, e.g. tagKey1, tagKey2",
     "displayName": "Tag Keys to Unset",
     "simpleValueType": true,
@@ -898,11 +908,11 @@ const makeTableMap = require('makeTableMap');
 const JSON = require('JSON');
 const Object = require('Object');
 
-// Constants – Conviva script creates window.tracker; Conviva-hosted URL built from version (jsDelivr CDN)
+// Constants – Conviva script creates window.apptracker; Conviva-hosted URL built from version (jsDelivr CDN)
 const CONVIVA_SCRIPT_BASE = 'https://cdn.jsdelivr.net/gh/Conviva/conviva-js-script-appanalytics@';
 const CONVIVA_SCRIPT_FILE = '/convivaAppTracker.js';
 const DEFAULT_VERSION = '1.5.5';
-const TRACKER_NAMESPACE = 'tracker';
+const TRACKER_NAMESPACE = 'apptracker';
 const LOG_PREFIX = '[Conviva AppAnalytics / GTM] ';
 // Cohort Replay – must load and init before main SDK (same jsDelivr pattern)
 const REPLAY_SCRIPT_BASE = 'https://cdn.jsdelivr.net/gh/Conviva/conviva-js-replay@';
@@ -972,25 +982,8 @@ const runNonInit = function() {
       if (data.revenuePaymentMethod) revenueData.paymentMethod = data.revenuePaymentMethod;
       if (data.revenuePaymentProvider) revenueData.paymentProvider = data.revenuePaymentProvider;
       if (data.revenueOrderStatus) revenueData.orderStatus = data.revenueOrderStatus;
-      var itemsTable = data.revenueItemsTable;
-      if (itemsTable && getType(itemsTable) === 'array' && itemsTable.length > 0) {
-        var items = [];
-        for (var i = 0; i < itemsTable.length; i++) {
-          var row = itemsTable[i];
-          if (!row || getType(row) !== 'object') continue;
-          var item = {};
-          if (row.productId) item.productId = row.productId;
-          if (row.name) item.name = row.name;
-          if (row.sku) item.sku = row.sku;
-          if (row.category) item.category = row.category;
-          if (row.unitPrice) item.unitPrice = row.unitPrice;
-          if (row.quantity) item.quantity = row.quantity;
-          if (row.discount) item.discount = row.discount;
-          if (row.brand) item.brand = row.brand;
-          if (row.variant) item.variant = row.variant;
-          if (Object.keys(item).length > 0) items.push(item);
-        }
-        if (items.length > 0) revenueData.items = items;
+      if (data.revenueItemsList && getType(data.revenueItemsList) === 'array' && data.revenueItemsList.length > 0) {
+        revenueData.items = data.revenueItemsList;
       }
       var extraMeta = makeTableMap(data.revenueExtraMetadata || [], 'key', 'value');
       if (extraMeta && isObject(extraMeta) && Object.keys(extraMeta).length > 0) {
@@ -1004,8 +997,13 @@ const runNonInit = function() {
       break;
     }
     case 'setCustomTags': {
-      const tags = makeTableMap(data.setCustomTagsTable || [], 'key', 'value');
-      if (tags && isObject(tags) && Object.keys(tags).length > 0) tracker('setCustomTags', tags);
+      var tags = makeTableMap(data.setCustomTagsTable || [], 'key', 'value') || {};
+      if (!isObject(tags)) tags = {};
+      if (data.setCustomTagsObject && isObject(data.setCustomTagsObject)) {
+        var cobj = data.setCustomTagsObject;
+        for (var ck in cobj) { if (cobj.hasOwnProperty(ck)) tags[ck] = cobj[ck]; }
+      }
+      if (Object.keys(tags).length > 0) tracker('setCustomTags', tags);
       break;
     }
     case 'unsetCustomTags': {
@@ -1148,7 +1146,7 @@ ___WEB_PERMISSIONS___
                 "mapValue": [
                   {
                     "type": 1,
-                    "string": "tracker"
+                    "string": "apptracker"
                   },
                   {
                     "type": 8,
@@ -1198,6 +1196,10 @@ ___WEB_PERMISSIONS___
               {
                 "type": 1,
                 "string": "https://cdn.jsdelivr.net/gh/Conviva/conviva-js-script-appanalytics/*"
+              },
+              {
+                "type": 1,
+                "string": "https://cdn.jsdelivr.net/gh/Conviva/conviva-js-replay/*"
               },
               {
                 "type": 1,
