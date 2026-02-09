@@ -903,6 +903,9 @@ ___SANDBOXED_JS_FOR_WEB_TEMPLATE___
 const copyFromWindow = require('copyFromWindow');
 const getType = require('getType');
 const injectScript = require('injectScript');
+const createQueue = require('createQueue');
+const setInWindow = require('setInWindow');
+const callInWindow = require('callInWindow');
 const log = require('logToConsole');
 const makeTableMap = require('makeTableMap');
 const JSON = require('JSON');
@@ -920,6 +923,23 @@ const REPLAY_SCRIPT_FILE = '/conviva-replay.umd.min.js';
 const REPLAY_DEFAULT_VERSION = '1.0.1';
 const REPLAY_NAMESPACE = 'ConvivaReplay';
 
+// Ensures apptracker queue stub and GlobalConvivaNamespace exist (sandbox: use createQueue/createArgumentsQueue only).
+const enablePreLoad = function() {
+
+  const apptracker = copyFromWindow('apptracker');
+  if (apptracker) {
+    return apptracker;
+  }
+  const globalNamespace = createQueue('GlobalConvivaNamespace');
+  globalNamespace('apptracker');
+
+  setInWindow('apptracker', function() {
+    callInWindow('apptracker.q.push', arguments);
+  });
+  createQueue('apptracker.q');
+  return copyFromWindow('apptracker');
+};
+const apptracker = enablePreLoad();
 const fail = function(msg) {
   log(LOG_PREFIX + 'Error: ' + msg);
   return data.gtmOnFailure();
@@ -944,7 +964,6 @@ const onReplayFailure = function() {
 };
 
 const runNonInit = function() {
-  const apptracker = copyFromWindow(TRACKER_NAMESPACE);
   if (!apptracker || typeof apptracker !== 'function') {
     return fail('Conviva apptracker not found. Ensure the Initialize tag has run.');
   }
@@ -1050,7 +1069,6 @@ const buildInitConfig = function() {
 };
 
 const onScriptSuccess = function() {
-  const apptracker = copyFromWindow(TRACKER_NAMESPACE);
   if (!apptracker || typeof apptracker !== 'function') return fail('Conviva apptracker not loaded');
 
   // Init: call convivaAppTracker with config, then optional setUserId and setCustomTags
@@ -1141,12 +1159,20 @@ ___WEB_PERMISSIONS___
                   {
                     "type": 1,
                     "string": "execute"
+                  },
+                  {
+                    "type": 1,
+                    "string": "write"
                   }
                 ],
                 "mapValue": [
                   {
                     "type": 1,
                     "string": "apptracker"
+                  },
+                  {
+                    "type": 8,
+                    "boolean": true
                   },
                   {
                     "type": 8,
@@ -1163,14 +1189,109 @@ ___WEB_PERMISSIONS___
                 "mapKey": [
                   { "type": 1, "string": "key" },
                   { "type": 1, "string": "read" },
+                  { "type": 1, "string": "write" },
                   { "type": 1, "string": "execute" }
+                ],
+                "mapValue": [
+                  { "type": 1, "string": "GlobalConvivaNamespace" },
+                  { "type": 8, "boolean": true },
+                  { "type": 8, "boolean": true },
+                  { "type": 8, "boolean": true }
+                ]
+              },
+              {
+                "type": 3,
+                "mapKey": [
+                  { "type": 1, "string": "key" },
+                  { "type": 1, "string": "read" },
+                  { "type": 1, "string": "execute" },
+                  { "type": 1, "string": "write" }
                 ],
                 "mapValue": [
                   { "type": 1, "string": "ConvivaReplay" },
                   { "type": 8, "boolean": true },
-                  { "type": 8, "boolean": true }
+                  { "type": 8, "boolean": true },
+                  { "type": 8, "boolean": false }
                 ]
-              }
+              },
+              {
+                "type": 3,
+                "mapKey": [
+                  {
+                    "type": 1,
+                    "string": "key"
+                  },
+                  {
+                    "type": 1,
+                    "string": "read"
+                  },
+                  {
+                    "type": 1,
+                    "string": "write"
+                  },
+                  {
+                    "type": 1,
+                    "string": "execute"
+                  }
+                ],
+                "mapValue": [
+                  {
+                    "type": 1,
+                    "string": "apptracker.q"
+                  },
+                  {
+                    "type": 8,
+                    "boolean": true
+                  },
+                  {
+                    "type": 8,
+                    "boolean": true
+                  },
+                  {
+                    "type": 8,
+                    "boolean": false
+                  }
+                ]
+              },
+              {
+                "type": 3,
+                "mapKey": [
+                  {
+                    "type": 1,
+                    "string": "key"
+                  },
+                  {
+                    "type": 1,
+                    "string": "read"
+                  },
+                  {
+                    "type": 1,
+                    "string": "write"
+                  },
+                  {
+                    "type": 1,
+                    "string": "execute"
+                  }
+                ],
+                "mapValue": [
+                  {
+                    "type": 1,
+                    "string": "apptracker.q.push"
+                  },
+                  {
+                    "type": 8,
+                    "boolean": false
+                  },
+                  {
+                    "type": 8,
+                    "boolean": false
+                  },
+                  {
+                    "type": 8,
+                    "boolean": true
+                  }
+                ]
+              },
             ]
           }
         }
