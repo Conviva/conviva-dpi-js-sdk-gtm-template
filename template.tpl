@@ -944,20 +944,20 @@ const onReplayFailure = function() {
 };
 
 const runNonInit = function() {
-  const tracker = copyFromWindow(TRACKER_NAMESPACE);
-  if (!tracker || typeof tracker !== 'function') {
-    return fail('Conviva tracker not found. Ensure the Initialize tag has run.');
+  const apptracker = copyFromWindow(TRACKER_NAMESPACE);
+  if (!apptracker || typeof apptracker !== 'function') {
+    return fail('Conviva apptracker not found. Ensure the Initialize tag has run.');
   }
 
   switch (data.type) {
     case 'setUserId':
-      tracker('setUserId', data.setUserId);
+      apptracker('setUserId', data.setUserId);
       break;
     case 'trackPageView':
       if (data.trackPageViewTitle) {
-        tracker('trackPageView', { title: data.trackPageViewTitle });
+        apptracker('trackPageView', { title: data.trackPageViewTitle });
       } else {
-        tracker('trackPageView');
+        apptracker('trackPageView');
       }
       break;
     case 'trackCustomEvent': {
@@ -967,7 +967,7 @@ const runNonInit = function() {
         const obj = data.eventDataObject;
         for (var k in obj) { if (obj.hasOwnProperty(k)) eventDataObj[k] = obj[k]; }
       }
-      tracker('trackCustomEvent', { name: data.eventName, data: eventDataObj });
+      apptracker('trackCustomEvent', { name: data.eventName, data: eventDataObj });
       break;
     }
     case 'trackRevenue': {
@@ -993,7 +993,7 @@ const runNonInit = function() {
         var robj = data.revenueDataObject;
         for (var rk in robj) { if (robj.hasOwnProperty(rk)) revenueData[rk] = robj[rk]; }
       }
-      tracker('trackCustomEvent', { name: 'conviva_revenue_event', data: revenueData });
+      apptracker('trackCustomEvent', { name: 'conviva_revenue_event', data: revenueData });
       break;
     }
     case 'setCustomTags': {
@@ -1003,19 +1003,19 @@ const runNonInit = function() {
         var cobj = data.setCustomTagsObject;
         for (var ck in cobj) { if (cobj.hasOwnProperty(ck)) tags[ck] = cobj[ck]; }
       }
-      if (Object.keys(tags).length > 0) tracker('setCustomTags', tags);
+      if (Object.keys(tags).length > 0) apptracker('setCustomTags', tags);
       break;
     }
     case 'unsetCustomTags': {
       const keys = stringToArrayAndTrim(data.unsetCustomTagsKeys || '');
-      if (keys.length > 0) tracker('unsetCustomTags', keys);
+      if (keys.length > 0) apptracker('unsetCustomTags', keys);
       break;
     }
     case 'trackError': {
       const errPayload = { message: data.trackErrorMessage };
       if (data.trackErrorFilename) errPayload.filename = data.trackErrorFilename;
       if (data.trackErrorObject != null) errPayload.error = data.trackErrorObject;
-      tracker('trackError', errPayload);
+      apptracker('trackError', errPayload);
       break;
     }
     default:
@@ -1050,15 +1050,15 @@ const buildInitConfig = function() {
 };
 
 const onScriptSuccess = function() {
-  const tracker = copyFromWindow(TRACKER_NAMESPACE);
-  if (!tracker || typeof tracker !== 'function') return fail('Conviva tracker not loaded');
+  const apptracker = copyFromWindow(TRACKER_NAMESPACE);
+  if (!apptracker || typeof apptracker !== 'function') return fail('Conviva apptracker not loaded');
 
   // Init: call convivaAppTracker with config, then optional setUserId and setCustomTags
-  tracker('convivaAppTracker', buildInitConfig());
+  apptracker('convivaAppTracker', buildInitConfig());
 
-  if (data.initUserId) tracker('setUserId', data.initUserId);
+  if (data.initUserId) apptracker('setUserId', data.initUserId);
   const initTags = makeTableMap(data.initCustomTags || [], 'key', 'value');
-  if (initTags && isObject(initTags) && Object.keys(initTags).length > 0) tracker('setCustomTags', initTags);
+  if (initTags && isObject(initTags) && Object.keys(initTags).length > 0) apptracker('setCustomTags', initTags);
 
   data.gtmOnSuccess();
 };
@@ -1249,7 +1249,7 @@ scenarios:
 
     runCode(mockData);
     assertApi('gtmOnSuccess').wasCalled();
-- name: setUserId tag calls tracker with setUserId
+- name: setUserId tag calls apptracker with setUserId
   code: |-
     mockData.type = 'setUserId';
     mockData.setUserId = 'user_123';
@@ -1261,7 +1261,7 @@ scenarios:
     });
     runCode(mockData);
     assertApi('gtmOnSuccess').wasCalled();
-- name: trackPageView tag calls tracker with no arg
+- name: trackPageView tag calls apptracker with no arg
   code: |-
     mockData.type = 'trackPageView';
     mockData.trackPageViewTitle = '';
@@ -1285,7 +1285,7 @@ scenarios:
     });
     runCode(mockData);
     assertApi('gtmOnSuccess').wasCalled();
-- name: trackCustomEvent tag calls tracker with name and data
+- name: trackCustomEvent tag calls apptracker with name and data
   code: |-
     mockData.type = 'trackCustomEvent';
     mockData.eventName = 'test_event';
@@ -1299,7 +1299,7 @@ scenarios:
     });
     runCode(mockData);
     assertApi('gtmOnSuccess').wasCalled();
-- name: trackRevenue tag calls tracker with conviva_revenue_event
+- name: trackRevenue tag calls apptracker with conviva_revenue_event
   code: |-
     mockData.type = 'trackRevenue';
     mockData.revenueOrderId = 'ord_123';
@@ -1316,7 +1316,7 @@ scenarios:
     });
     runCode(mockData);
     assertApi('gtmOnSuccess').wasCalled();
-- name: setCustomTags tag calls tracker with tags object
+- name: setCustomTags tag calls apptracker with tags object
   code: |-
     mockData.type = 'setCustomTags';
     mockData.setCustomTagsTable = [{ key: 'a', value: '1' }];
@@ -1328,7 +1328,7 @@ scenarios:
     });
     runCode(mockData);
     assertApi('gtmOnSuccess').wasCalled();
-- name: unsetCustomTags tag calls tracker with array of keys
+- name: unsetCustomTags tag calls apptracker with array of keys
   code: |-
     mockData.type = 'unsetCustomTags';
     mockData.unsetCustomTagsKeys = 'key1, key2';
@@ -1340,7 +1340,7 @@ scenarios:
     });
     runCode(mockData);
     assertApi('gtmOnSuccess').wasCalled();
-- name: trackError tag calls tracker with message
+- name: trackError tag calls apptracker with message
   code: |-
     mockData.type = 'trackError';
     mockData.trackErrorMessage = 'Test error';
@@ -1352,7 +1352,7 @@ scenarios:
     });
     runCode(mockData);
     assertApi('gtmOnSuccess').wasCalled();
-- name: Non-init tag when tracker missing fails
+- name: Non-init tag when apptracker missing fails
   code: |-
     mockData.type = 'trackPageView';
     mock('copyFromWindow', function(key) {
