@@ -1,0 +1,115 @@
+"_comment": "Complete sample event for Track Revenue (conviva_revenue_event). All fields from the GTM tag UI are represented. Share this with the backend for schema/reference.",
+  "_ue_pr_data_field_mapping": {
+    "GTM_UI_field": "ue_pr.dt.dt.data key",
+    "Total order amount*": "totalOrderAmount",
+    "Order ID (transaction ID)*": "transactionId",
+    "Currency": "currency",
+    "Tax amount": "taxAmount",
+    "Shipping cost": "shippingCost",
+    "Discount / coupon value": "discount",
+    "Cart size (number of items)": "cartSize",
+    "Purchased items (variable)": "items (array of line-item objects)",
+    "Payment method": "paymentMethod",
+    "Payment provider": "paymentProvider",
+    "Order status": "orderStatus",
+    "Additional metadata (table)": "arbitrary key/value merged into data",
+    "Revenue data object (variable)": "object merged into data"
+  },
+{
+  "e": "ue",
+  "eid": "a976e29f-3e8e-42af-ba4d-817dfe041864",
+  "tv": "js-1.5.5",
+  "aid": "GTM-Template-Test-App",
+  "p": "web",
+  "dtm": "1770700694186",
+  "page": "Video.js | HTML5 Video Player",
+  "url": "http://localhost:8082/?order_id=123&revenue=120&currency=USD",
+  "stm": "1770700695287",
+
+  "ue_pr": {
+    "sc": "sp/ue/1-0-0",
+    "dt": {
+      "sc": "cv/re/1-0-1",
+      "dt": {
+        "name": "conviva_revenue_event",
+        "data": {
+          "transactionId": "ord_1770700694185",
+          "totalOrderAmount": "49.99",
+          "currency": "USD",
+          "taxAmount": "4.50",
+          "shippingCost": "5.99",
+          "discount": "2.00",
+          "cartSize": "2",
+          "paymentMethod": "card",
+          "paymentProvider": "Stripe",
+          "orderStatus": "completed",
+          "items": [
+            {
+              "productId": "p1",
+              "name": "Sample Product",
+              "sku": "SKU-001",
+              "category": "Subscription",
+              "unitPrice": "24.99",
+              "quantity": "1",
+              "discount": "0",
+              "brand": "Sample Brand",
+              "variant": "Monthly"
+            },
+            {
+              "productId": "p2",
+              "name": "Add-on Product",
+              "sku": "SKU-002",
+              "category": "Add-on",
+              "unitPrice": "19.99",
+              "quantity": "1",
+              "discount": "1.00",
+              "brand": "Sample Brand",
+              "variant": null
+            }
+          ],
+          "couponCode": "SAVE10",
+          "channel": "web"
+        }
+      }
+    }
+  },
+
+  "co": {
+    "sc": "sp/ctx/1-0-0",
+    "dt": [
+      {
+        "sc": "cv/clid/1-0-2",
+        "dt": {
+          "clid": "1522415414.2140761815.2092711246.1118538115",
+          "iid": "496521485",
+          "ck": "4d2f03dddf417990f520f09d79b11ab014c39dab",
+          "eventIndex": 22
+        }
+      },
+      {
+        "sc": "cv/ct/1-0-0",
+        "dt": { "data": {} }
+      },
+      {
+        "sc": "spm/app/1-0-0",
+        "dt": { "build": "1.0.0", "version": "1.0.0" }
+      },
+      {
+        "sc": "iglu:com.conviva/pm/jsonschema/1-0-2",
+        "dt": {
+          "sch": "sdk.js.eco.1",
+          "cat": "DSKAPP",
+          "dvb": "Apple",
+          "dvma": "Apple",
+          "dvm": "MacBookPro",
+          "dvt": "DESKTOP",
+          "dvv": "2021",
+          "os": "MAC",
+          "osv": "15.6",
+          "fw": "Web",
+          "fwv": "1.0.0"
+        }
+      }
+    ]
+  }
+}
