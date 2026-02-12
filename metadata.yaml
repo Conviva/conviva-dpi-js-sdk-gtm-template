@@ -1,7 +1,7 @@
 # Google Tag Manager Community Template Gallery metadata
 # See: https://developers.google.com/tag-platform/tag-manager/templates/gallery
 
-homepage: "https://github.com/Conviva/conviva-dpi-js-sdk-gtm-template"
+homepage: "https://www.conviva.ai"
 documentation: "https://github.com/Conviva/conviva-dpi-js-sdk-gtm-template"
 versions:
   - sha: "initial"
