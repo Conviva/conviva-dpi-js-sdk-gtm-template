@@ -161,7 +161,7 @@ ___TEMPLATE_PARAMETERS___
   {
     "type": "LABEL",
     "name": "trackRevenueDescription",
-    "displayName": "Track Revenue – Sends a revenue/purchase event (conviva_revenue_event) with order amount and transaction ID required; optional currency, tax, shipping, discount, cart size, line items, and extra metadata. Uses same API as Custom Event.",
+    "displayName": "Track Revenue – Sends a revenue/purchase event (conviva_revenue_event) with order amount, order ID, and currency required; optional tax, shipping, discount, cart size, line items, and extra metadata. Uses same API as Custom Event.",
     "enablingConditions": [
       {
         "paramName": "type",
@@ -706,7 +706,9 @@ ___TEMPLATE_PARAMETERS___
     ]
   },
   {
-    "displayName": "Currency",
+    "help": "Currency code (required for revenue metrics).",
+    "valueValidators": [{ "type": "NON_EMPTY" }],
+    "displayName": "Currency*",
     "simpleValueType": true,
     "name": "revenueCurrency",
     "type": "TEXT",
@@ -1035,7 +1037,7 @@ const runNonInit = function() {
       const revenueData = {};
       revenueData.transactionId = data.revenueOrderId;
       revenueData.totalOrderAmount = data.revenueTotalOrderAmount;
-      if (data.revenueCurrency) revenueData.currency = data.revenueCurrency;
+      revenueData.currency = data.revenueCurrency;
       if (data.revenueTaxAmount) revenueData.taxAmount = data.revenueTaxAmount;
       if (data.revenueShippingCost) revenueData.shippingCost = data.revenueShippingCost;
       if (data.revenueDiscount) revenueData.discount = data.revenueDiscount;

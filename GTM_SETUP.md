@@ -19,8 +19,9 @@ Create these in **Variables** → **User-Defined Variables** → **New**. Use th
 | **Conviva – Page View Title** | Data Layer Variable | Key: `convivaPageViewTitle`. Optional override for Track Page View. |
 | **Conviva – Error Message** | Data Layer Variable | Key: `convivaErrorMessage`. For Track Error. |
 | **Conviva – Error Filename** | Data Layer Variable | Key: `convivaErrorFilename`. Optional. |
-| **Conviva – Revenue Order Amount** | Data Layer Variable | Key: `convivaRevenueOrderAmount`. |
-| **Conviva – Revenue Order ID** | Data Layer Variable | Key: `convivaRevenueOrderId`. |
+| **Conviva – Revenue Order Amount** | Data Layer Variable | Key: `convivaRevenueOrderAmount`. Required. |
+| **Conviva – Revenue Order ID** | Data Layer Variable | Key: `convivaRevenueOrderId`. Required. |
+| **Conviva – Revenue Currency** | Data Layer Variable | Key: `convivaRevenueCurrency`. Required (e.g. USD). |
 | **Conviva – Revenue Items List** | Data Layer Variable | Key: `convivaRevenueItems`. Array of line items (objects). |
 | **Conviva – Revenue Data** | Data Layer Variable | Key: `convivaRevenueData`. Full revenue payload object (optional). |
 | **Conviva – Custom Tags** | Data Layer Variable | Key: `convivaCustomTags`. Object of key/value for Set Custom Tags. |
@@ -122,7 +123,7 @@ Create one tag per row. Tag type: **Conviva DPI JS SDK** (after importing the te
 | **Conviva – Custom Event** | Track Custom Event (trackCustomEvent) | Event Name → `{{Conviva – Custom Event Name}}`, Event Data Object (variable) → `{{Conviva – Custom Event Data}}`. Only fire if initialized: ✓ | **Conviva – Custom Event** |
 | **Conviva – Set User ID** | Set User ID (setUserId) | User ID → `{{Conviva – User ID}}` | **Conviva – Set User ID** |
 | **Conviva – Track Error** | Track Error (trackError) | Error Message → `{{Conviva – Error Message}}`, Filename → `{{Conviva – Error Filename}}` | **Conviva – Track Error** |
-| **Conviva – Revenue** | Track Revenue (trackRevenue) | Total order amount → `{{Conviva – Revenue Order Amount}}`, Order ID → `{{Conviva – Revenue Order ID}}`, Purchased items (variable) → `{{Conviva – Revenue Items List}}`, Revenue data object → `{{Conviva – Revenue Data}}` (optional). Only fire if initialized: ✓ | **Conviva – Revenue** |
+| **Conviva – Revenue** | Track Revenue (trackRevenue) | Total order amount → `{{Conviva – Revenue Order Amount}}`, Order ID → `{{Conviva – Revenue Order ID}}`, Currency → `{{Conviva – Revenue Currency}}` (all required). Purchased items (variable) → `{{Conviva – Revenue Items List}}`, Revenue data object → `{{Conviva – Revenue Data}}` (optional). Only fire if initialized: ✓ | **Conviva – Revenue** |
 | **Conviva – Set Custom Tags** | Set Custom Tags (setCustomTags) | **Custom Tags (variable)** → `{{Conviva – Custom Tags}}` (object from dataLayer). Optionally add rows in the **table**; variable and table are merged. See "Set Custom Tags – explained" below. | **Conviva – Set Custom Tags** |
 | **Conviva – Unset Custom Tags** | Unset Custom Tags (unsetCustomTags) | Tag Keys to Unset → `{{Conviva – Unset Tag Keys}}` | **Conviva – Unset Custom Tags** |
 
@@ -153,7 +154,7 @@ Push these from your page so the triggers above fire and variables are read from
 | `conviva_customEvent` | `convivaEventName`, `convivaEventData` |
 | `conviva_setUserId` | `convivaUserId` |
 | `conviva_trackError` | `convivaErrorMessage`, `convivaErrorFilename` (optional) |
-| `conviva_revenue` | `convivaRevenueOrderAmount`, `convivaRevenueOrderId`, `convivaRevenueItems` (array), optionally `convivaRevenueData` (object) |
+| `conviva_revenue` | `convivaRevenueOrderAmount`, `convivaRevenueOrderId`, `convivaRevenueCurrency` (all required), `convivaRevenueItems` (array), optionally `convivaRevenueData` (object) |
 | `conviva_setCustomTags` | `convivaCustomTags` (object) |
 | `conviva_unsetCustomTags` | `convivaUnsetTagKeys` (string or array) |
 
@@ -176,6 +177,7 @@ window.dataLayer.push({
   event: 'conviva_revenue',
   convivaRevenueOrderAmount: '99.99',
   convivaRevenueOrderId: 'ord_12345',
+  convivaRevenueCurrency: 'USD',
   convivaRevenueItems: [{ productId: 'p1', name: 'Product 1', quantity: '2', unitPrice: '49.99' }]
 });
 ```
