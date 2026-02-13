@@ -4,5 +4,5 @@
 homepage: "https://www.conviva.ai"
 documentation: "https://github.com/Conviva/conviva-dpi-js-sdk-gtm-template"
 versions:
-  - sha: "ae27e7aacabeabf68384fd8a4f21c61376e2027a"
-    changeNotes: "Initial release. Conviva DPI JS tag: Initialize, Set User ID, Track Page View, Track Custom Event, Set/Unset Custom Tags, Track Error."
+  - sha: "5dbaeed6a793bb43e71d7c6add687347ed582753"
+    changeNotes: "Initial release. Conviva DPI JS tag: Initialize, Set User ID, Track Page View, Track Custom Event, Set/Unset Custom Tags, Track Error, Track Revenue."
