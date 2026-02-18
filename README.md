@@ -31,7 +31,7 @@ For a full container setup (variables, tags, triggers, and dataLayer event names
 - **App ID*** – Application name (e.g. `"WEB App"`, `"LGTV Web App"`).
 - **App Version** – Optional string (e.g. `"1.1.0"`).
 - **Script source** – **Conviva-hosted (recommended)** or **Customer-hosted**. If customer-hosted, provide the full URL to `convivaAppTracker.js`.
-- **Init with Cohort Replay** – When enabled, loads and initialises [Conviva Session Replay](https://github.com/Conviva/conviva-js-replay) (conviva-replay.umd.min.js from jsDelivr) **before** the main SDK, using the same Customer Key. Replay must run before AppAnalytics.
+- **Init with Cohort Replay** – When enabled, loads and initialises [Conviva Session Replay](https://github.com/Conviva/conviva-js-replay) (conviva-replay.umd.min.js from the Conviva CDN, [sensor.conviva.com](https://sensor.conviva.com/)) **before** the main SDK, using the same Customer Key. Replay must run before AppAnalytics.
 - **Replay script version** – (Shown when Cohort Replay is enabled.) Dropdown to select replay SDK version (e.g. `1.0.1`). **Replay custom version (optional)** overrides the dropdown when set (e.g. `main`, `1.0.1`).
 - **User ID** – Optional; if set, `setUserId` is called immediately after init.
 - **Default Custom Tags** – Optional key/value table; applied via `setCustomTags` after init.
