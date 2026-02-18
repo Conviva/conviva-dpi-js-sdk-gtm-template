@@ -12,3 +12,5 @@
 *.log
 npm-debug.log*
 
+INTEGRATION_GUIDE.md
+

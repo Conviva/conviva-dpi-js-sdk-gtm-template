@@ -260,7 +260,7 @@ ___TEMPLATE_PARAMETERS___
         "simpleValueType": true,
         "name": "scriptVersion",
         "type": "SELECT",
-        "help": "SDK version to load from Conviva CDN (jsDelivr). Overridden by Custom version when set.",
+        "help": "SDK version to load from Conviva CDN (sensor.conviva.com). Overridden by Custom version when set.",
         "enablingConditions": [
           {
             "paramName": "scriptSource",
@@ -955,13 +955,13 @@ const makeTableMap = require('makeTableMap');
 const JSON = require('JSON');
 const Object = require('Object');
 
-// Constants – Conviva script creates window.apptracker; Conviva-hosted URL built from version (jsDelivr CDN)
+// Constants – Conviva script creates window.apptracker; Conviva-hosted URL built from version (sensor.conviva.com)
 const CONVIVA_SCRIPT_BASE = 'https://sensor.conviva.com/dpi/releases/';
 const CONVIVA_SCRIPT_FILE = '/convivaAppTracker.js';
 const DEFAULT_VERSION = 'v1.5.5';
 const TRACKER_NAMESPACE = 'apptracker';
 const LOG_PREFIX = '[Conviva AppAnalytics / GTM] ';
-// Cohort Replay – must load and init before main SDK (same jsDelivr pattern)
+// Cohort Replay – must load and init before main SDK (same Conviva CDN pattern)
 const REPLAY_SCRIPT_BASE = 'https://sensor.conviva.com/replay/releases/';
 const REPLAY_SCRIPT_FILE = '/conviva-replay.umd.min.js';
 const REPLAY_DEFAULT_VERSION = 'v1.0.1';
