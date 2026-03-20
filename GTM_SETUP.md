@@ -1,6 +1,6 @@
-# GTM Container Setup – Conviva AppAnalytics
+# GTM Container Setup – Conviva DPI JS SDK
 
-This guide lists **Variables**, **Tags**, and **Triggers** to configure in your GTM container so all Conviva AppAnalytics tag types work and can be tested (e.g. with the VideoJS sample app).
+This guide lists **Variables**, **Tags**, and **Triggers** to configure in your GTM container so all Conviva DPI JS SDK tag types work and can be tested (e.g. with the VideoJS sample app).
 
 ---
 
@@ -98,11 +98,11 @@ Create these in **Triggers** → **New**.
 |--------------|------|----------------|
 | **Conviva – All Pages (Init)** | Initialization – All Pages | (no filters) – fires first so Init loads the SDK. Use for production. |
 | **Conviva – Init (Custom Event)** | Custom Event | Event name: `conviva_init`. Use to fire Init on button click for testing setClientId; push `convivaClientId` in the same push. |
-| **Conviva – DOM Ready (Page View)** | DOM Ready | (no filters) – for Track Page View on **first load** (MPA or SPA). |
-| **Conviva – History Change (Page View)** | History Change | (no filters) – for Track Page View on **SPA route changes** (pushState/replaceState). |
+| **Conviva – DOM Ready (Page View)** | DOM Ready | (no filters) – fires when DOM is ready. Use for **MPA** only, or for **initial load** in SPA/hybrid. |
+| **Conviva – History Change (Page View)** | History Change | (no filters) – fires on pushState/replaceState. Use for **SPA/hybrid** so each in-app route change sends a page view. |
 | **Conviva – Custom Event** | Custom Event | Event name: `conviva_customEvent`. Use for Track Custom Event tag. |
 
-**Page View triggers:** Use **DOM Ready** for traditional multi-page sites (one view per full load). Use **History Change** for single-page apps so each route change sends a page view. For **SPA or hybrid** sites, attach the same Page View tag to **both** DOM Ready and History Change so you get a view on initial load and on every in-app navigation.
+**Page View triggers:** For **MPA**, use **DOM Ready** only. For **SPA or hybrid**, attach the same Conviva Page View tag to **both** DOM Ready (initial load) and History Change (route changes).
 
 | **Conviva – Set User ID** | Custom Event | Event name: `conviva_setUserId`. |
 | **Conviva – Track Error** | Custom Event | Event name: `conviva_trackError`. |
@@ -119,18 +119,20 @@ Create one tag per row. Tag type: **Conviva DPI JS SDK** (after importing the te
 | Tag Name | Tag Type (dropdown) | Key fields → Variable / Value | Trigger |
 |----------|---------------------|------------------------------|---------|
 | **Conviva – Init** | Initialize (init) | **Script source:** Conviva-hosted (version dropdown) or Customer-hosted (Script URL). **Replay:** If "Init with Cohort Replay" is enabled, **Replay script source:** Conviva-hosted (version) or Customer-hosted (Replay script URL). Other fields: Conviva Customer Key, App ID, App Version, (optional) User ID, (optional) **Client ID** → `{{Conviva – Client ID}}`. With **All Pages** trigger, pass clientId in URL: `?convivaClientId=...`; with **Custom Event** trigger, push `convivaClientId` in the same dataLayer push. | **Conviva – All Pages (Init)** (production) or **Conviva – Init (Custom Event)** (testing). |
-| **Conviva – Page View** | Track Page View (trackPageView) | Page Title Override → `{{Conviva – Page View Title}}` (or leave empty). Only fire if initialized: ✓ | **Conviva – DOM Ready (Page View)** and/or **Conviva – History Change (Page View)**. Use both for SPA/hybrid. |
-| **Conviva – Custom Event** | Track Custom Event (trackCustomEvent) | Event Name → `{{Conviva – Custom Event Name}}`, Event Data Object (variable) → `{{Conviva – Custom Event Data}}`. Only fire if initialized: ✓ | **Conviva – Custom Event** |
+| **Conviva – Page View** | Track Page View (trackPageView) | Page Title Override → `{{Conviva – Page View Title}}` (or leave empty). | **Conviva – DOM Ready (Page View)** (MPA). For SPA/hybrid: **Conviva – DOM Ready (Page View)** and **Conviva – History Change (Page View)**. |
+| **Conviva – Custom Event** | Track Custom Event (trackCustomEvent) | Event Name → `{{Conviva – Custom Event Name}}`, Event Data Object (variable) → `{{Conviva – Custom Event Data}}`. | **Conviva – Custom Event** |
 | **Conviva – Set User ID** | Set User ID (setUserId) | User ID → `{{Conviva – User ID}}` | **Conviva – Set User ID** |
 | **Conviva – Track Error** | Track Error (trackError) | Error Message → `{{Conviva – Error Message}}`, Filename → `{{Conviva – Error Filename}}` | **Conviva – Track Error** |
-| **Conviva – Revenue** | Track Revenue (trackRevenue) | Total order amount → `{{Conviva – Revenue Order Amount}}`, Order ID → `{{Conviva – Revenue Order ID}}`, Currency → `{{Conviva – Revenue Currency}}` (all required). Purchased items (variable) → `{{Conviva – Revenue Items List}}`, Revenue data object → `{{Conviva – Revenue Data}}` (optional). Only fire if initialized: ✓ | **Conviva – Revenue** |
+| **Conviva – Revenue** | Track Revenue (trackRevenue) | Total order amount → `{{Conviva – Revenue Order Amount}}`, Order ID → `{{Conviva – Revenue Order ID}}`, Currency → `{{Conviva – Revenue Currency}}` (all required). Purchased items (variable) → `{{Conviva – Revenue Items List}}`, Revenue data object → `{{Conviva – Revenue Data}}` (optional). | **Conviva – Revenue** |
 | **Conviva – Set Custom Tags** | Set Custom Tags (setCustomTags) | **Custom Tags (variable)** → `{{Conviva – Custom Tags}}` (object from dataLayer). Optionally add rows in the **table**; variable and table are merged. See "Set Custom Tags – explained" below. | **Conviva – Set Custom Tags** |
 | **Conviva – Unset Custom Tags** | Unset Custom Tags (unsetCustomTags) | Tag Keys to Unset → `{{Conviva – Unset Tag Keys}}` | **Conviva – Unset Custom Tags** |
 
 #### Script source (main SDK and Cohort Replay)
 
 - **Main SDK:** **Script source** = Conviva-hosted (recommended) or Customer-hosted. When Customer-hosted, set **Script URL** to the full URL of `convivaAppTracker.js`.
-- **Cohort Replay** (when "Init with Cohort Replay" is checked): **Replay script source** = Conviva-hosted (recommended) or Customer-hosted. When Customer-hosted, set **Replay script URL** to the full URL of your replay bundle (e.g. `conviva-replay.umd.min.js`). For customer-hosted scripts, ensure the tag’s inject-script permissions allow your domain (or add your URL in the container if required).
+- **Cohort Replay** (when "Init with Cohort Replay" is checked): **Replay script source** = Conviva-hosted (recommended) or Customer-hosted. When Customer-hosted, set **Replay script URL** to the full URL of your replay bundle (e.g. `conviva-replay.umd.min.js`).
+
+> **Customer-hosted permissions:** The template’s `inject_script` permission only whitelists `*.conviva.com` domains. If you host the DPI SDK or Cohort Replay script on a non-Conviva domain, you must add your domain to the template’s **Permissions → Injects scripts** list in the GTM Template Editor. Without this, GTM will block the script from loading.
 
 #### Client ID (setClientId)
 
@@ -205,23 +207,12 @@ window.dataLayer.push({
 
 ---
 
-## 5. Queue snippet (required for SDK v1.5.5+)
+## 5. Testing with VideoJS sample app
 
-Add this **before** the GTM script (or in a Custom HTML tag that fires before Conviva Init) so `window.tracker` exists when the SDK loads:
-
-```html
-<script>
-(function(p,i){if(!p[i]){p.GlobalConvivaNamespace=p.GlobalConvivaNamespace||[];p.GlobalConvivaNamespace.push(i);p[i]=function(){(p[i].q=p[i].q||[]).push(arguments);};p[i].q=p[i].q||[];}}(window,"tracker"));
-</script>
-```
-
----
-
-## 6. Testing with VideoJS sample app
+The template maintains the **apptracker queue** internally; no queue snippet is required on the page.
 
 The sample app (`VideoJS-Sample-AppInsights-0.3.19`) includes:
 
-- The queue snippet in the page (before GTM).
 - dataLayer pushes for: `conviva_customEvent`, `conviva_pageView` (via DOM Ready), `conviva_setUserId`, `conviva_trackError`, `conviva_revenue`, `conviva_setCustomTags`, `conviva_unsetCustomTags`.
 
 Configure your GTM container with the Variables and Triggers above, create the Conviva tags as in the table, then open the sample app and use the buttons/actions that push each event to verify each tag type.
