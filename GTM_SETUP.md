@@ -1,6 +1,6 @@
-# GTM Container Setup – Conviva AppAnalytics
+# GTM Container Setup – Conviva DPI JS SDK
 
-This guide lists **Variables**, **Tags**, and **Triggers** to configure in your GTM container so all Conviva AppAnalytics tag types work and can be tested (e.g. with the VideoJS sample app).
+This guide lists **Variables**, **Tags**, and **Triggers** to configure in your GTM container so all Conviva DPI JS SDK tag types work and can be tested (e.g. with the VideoJS sample app).
 
 ---
 
@@ -119,18 +119,20 @@ Create one tag per row. Tag type: **Conviva DPI JS SDK** (after importing the te
 | Tag Name | Tag Type (dropdown) | Key fields → Variable / Value | Trigger |
 |----------|---------------------|------------------------------|---------|
 | **Conviva – Init** | Initialize (init) | **Script source:** Conviva-hosted (version dropdown) or Customer-hosted (Script URL). **Replay:** If "Init with Cohort Replay" is enabled, **Replay script source:** Conviva-hosted (version) or Customer-hosted (Replay script URL). Other fields: Conviva Customer Key, App ID, App Version, (optional) User ID, (optional) **Client ID** → `{{Conviva – Client ID}}`. With **All Pages** trigger, pass clientId in URL: `?convivaClientId=...`; with **Custom Event** trigger, push `convivaClientId` in the same dataLayer push. | **Conviva – All Pages (Init)** (production) or **Conviva – Init (Custom Event)** (testing). |
-| **Conviva – Page View** | Track Page View (trackPageView) | Page Title Override → `{{Conviva – Page View Title}}` (or leave empty). Only fire if initialized: ✓ | **Conviva – DOM Ready (Page View)** (MPA). For SPA/hybrid: **Conviva – DOM Ready (Page View)** and **Conviva – History Change (Page View)**. |
-| **Conviva – Custom Event** | Track Custom Event (trackCustomEvent) | Event Name → `{{Conviva – Custom Event Name}}`, Event Data Object (variable) → `{{Conviva – Custom Event Data}}`. Only fire if initialized: ✓ | **Conviva – Custom Event** |
+| **Conviva – Page View** | Track Page View (trackPageView) | Page Title Override → `{{Conviva – Page View Title}}` (or leave empty). | **Conviva – DOM Ready (Page View)** (MPA). For SPA/hybrid: **Conviva – DOM Ready (Page View)** and **Conviva – History Change (Page View)**. |
+| **Conviva – Custom Event** | Track Custom Event (trackCustomEvent) | Event Name → `{{Conviva – Custom Event Name}}`, Event Data Object (variable) → `{{Conviva – Custom Event Data}}`. | **Conviva – Custom Event** |
 | **Conviva – Set User ID** | Set User ID (setUserId) | User ID → `{{Conviva – User ID}}` | **Conviva – Set User ID** |
 | **Conviva – Track Error** | Track Error (trackError) | Error Message → `{{Conviva – Error Message}}`, Filename → `{{Conviva – Error Filename}}` | **Conviva – Track Error** |
-| **Conviva – Revenue** | Track Revenue (trackRevenue) | Total order amount → `{{Conviva – Revenue Order Amount}}`, Order ID → `{{Conviva – Revenue Order ID}}`, Currency → `{{Conviva – Revenue Currency}}` (all required). Purchased items (variable) → `{{Conviva – Revenue Items List}}`, Revenue data object → `{{Conviva – Revenue Data}}` (optional). Only fire if initialized: ✓ | **Conviva – Revenue** |
+| **Conviva – Revenue** | Track Revenue (trackRevenue) | Total order amount → `{{Conviva – Revenue Order Amount}}`, Order ID → `{{Conviva – Revenue Order ID}}`, Currency → `{{Conviva – Revenue Currency}}` (all required). Purchased items (variable) → `{{Conviva – Revenue Items List}}`, Revenue data object → `{{Conviva – Revenue Data}}` (optional). | **Conviva – Revenue** |
 | **Conviva – Set Custom Tags** | Set Custom Tags (setCustomTags) | **Custom Tags (variable)** → `{{Conviva – Custom Tags}}` (object from dataLayer). Optionally add rows in the **table**; variable and table are merged. See "Set Custom Tags – explained" below. | **Conviva – Set Custom Tags** |
 | **Conviva – Unset Custom Tags** | Unset Custom Tags (unsetCustomTags) | Tag Keys to Unset → `{{Conviva – Unset Tag Keys}}` | **Conviva – Unset Custom Tags** |
 
 #### Script source (main SDK and Cohort Replay)
 
 - **Main SDK:** **Script source** = Conviva-hosted (recommended) or Customer-hosted. When Customer-hosted, set **Script URL** to the full URL of `convivaAppTracker.js`.
-- **Cohort Replay** (when "Init with Cohort Replay" is checked): **Replay script source** = Conviva-hosted (recommended) or Customer-hosted. When Customer-hosted, set **Replay script URL** to the full URL of your replay bundle (e.g. `conviva-replay.umd.min.js`). For customer-hosted scripts, ensure the tag’s inject-script permissions allow your domain (or add your URL in the container if required).
+- **Cohort Replay** (when "Init with Cohort Replay" is checked): **Replay script source** = Conviva-hosted (recommended) or Customer-hosted. When Customer-hosted, set **Replay script URL** to the full URL of your replay bundle (e.g. `conviva-replay.umd.min.js`).
+
+> **Customer-hosted permissions:** The template’s `inject_script` permission only whitelists `*.conviva.com` domains. If you host the DPI SDK or Cohort Replay script on a non-Conviva domain, you must add your domain to the template’s **Permissions → Injects scripts** list in the GTM Template Editor. Without this, GTM will block the script from loading.
 
 #### Client ID (setClientId)
 

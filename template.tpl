@@ -22,7 +22,7 @@ ___INFO___
     "displayName": "Conviva",
     "thumbnail": "data:image/png;base64,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"
   },
-  "description": "Deploy the Conviva JavaScript DPI SDK (script-based AppAnalytics tracker) via GTM. Supports Initialize (with optional Cohort Replay), Set User ID, Track Page View, Track Custom Event, Track Revenue, Set/Unset Custom Tags, and Track Error. See https://github.com/Conviva/conviva-js-script-appanalytics and https://github.com/Conviva/conviva-js-replay.",
+  "description": "Deploy the Conviva DPI JS SDK via GTM. Supports Initialize (with optional Cohort Replay), Track Page View, Track Custom Event, Track Revenue, Set/Unset Custom Tags, Set User ID, and Track Error.",
   "containerContexts": [
     "WEB"
   ]
@@ -251,12 +251,16 @@ ___TEMPLATE_PARAMETERS___
       {
         "selectItems": [
           {
+            "displayValue": "v2.0.0",
+            "value": "v2.0.0"
+          },
+          {
             "displayValue": "v1.5.5",
             "value": "v1.5.5"
           }
         ],
         "displayName": "Script version",
-        "defaultValue": "v1.5.5",
+        "defaultValue": "v2.0.0",
         "simpleValueType": true,
         "name": "scriptVersion",
         "type": "SELECT",
@@ -284,7 +288,7 @@ ___TEMPLATE_PARAMETERS___
         ]
       },
       {
-        "help": "Full URL to convivaAppTracker.js (required when Script source is Customer-hosted).",
+        "help": "Full URL to convivaAppTracker.js (required when Script source is Customer-hosted). Note: If you use a non-Conviva domain, you must add the domain to the template\u0027s Permissions (inject_script) in the GTM Template Editor, or grant container-level script injection permission for that domain.",
         "valueValidators": [
           {
             "type": "NON_EMPTY"
@@ -337,10 +341,11 @@ ___TEMPLATE_PARAMETERS___
     "subParams": [
       {
         "selectItems": [
+          { "displayValue": "v1.0.2", "value": "v1.0.2" },
           { "displayValue": "v1.0.1", "value": "v1.0.1" }
         ],
         "displayName": "Replay script version",
-        "defaultValue": "v1.0.1",
+        "defaultValue": "v1.0.2",
         "simpleValueType": true,
         "name": "replayScriptVersion",
         "type": "SELECT",
@@ -360,7 +365,7 @@ ___TEMPLATE_PARAMETERS___
         ]
       },
       {
-        "help": "Full URL to conviva-replay.umd.min.js (or your replay bundle). Required when Replay script source is Customer-hosted.",
+        "help": "Full URL to conviva-replay.umd.min.js (or your replay bundle). Required when Replay script source is Customer-hosted. Note: If you use a non-Conviva domain, you must add the domain to the template\u0027s Permissions (inject_script) in the GTM Template Editor, or grant container-level script injection permission for that domain.",
         "valueValidators": [
           { "type": "NON_EMPTY" }
         ],
@@ -592,20 +597,6 @@ ___TEMPLATE_PARAMETERS___
     ]
   },
   {
-    "defaultValue": true,
-    "simpleValueType": true,
-    "name": "trackPageViewOnlyIfInitialized",
-    "checkboxText": "Only fire if initialized",
-    "type": "CHECKBOX",
-    "enablingConditions": [
-      {
-        "paramName": "type",
-        "paramValue": "trackPageView",
-        "type": "EQUALS"
-      }
-    ]
-  },
-  {
     "valueValidators": [
       {
         "type": "NON_EMPTY"
@@ -659,20 +650,6 @@ ___TEMPLATE_PARAMETERS___
     "simpleValueType": true,
     "help": "Optional: select a GTM variable that returns an object. Merged with table above if both set.",
     "notSetText": "Don't set",
-    "enablingConditions": [
-      {
-        "paramName": "type",
-        "paramValue": "trackCustomEvent",
-        "type": "EQUALS"
-      }
-    ]
-  },
-  {
-    "defaultValue": true,
-    "simpleValueType": true,
-    "name": "trackCustomEventOnlyIfInitialized",
-    "checkboxText": "Only fire if initialized",
-    "type": "CHECKBOX",
     "enablingConditions": [
       {
         "paramName": "type",
@@ -824,16 +801,6 @@ ___TEMPLATE_PARAMETERS___
     ]
   },
   {
-    "defaultValue": true,
-    "simpleValueType": true,
-    "name": "trackRevenueOnlyIfInitialized",
-    "checkboxText": "Only fire if initialized",
-    "type": "CHECKBOX",
-    "enablingConditions": [
-      { "paramName": "type", "paramValue": "trackRevenue", "type": "EQUALS" }
-    ]
-  },
-  {
     "displayName": "Custom Tags",
     "name": "setCustomTagsTable",
     "simpleTableColumns": [
@@ -950,6 +917,7 @@ const createQueue = require('createQueue');
 const setInWindow = require('setInWindow');
 const callInWindow = require('callInWindow');
 const log = require('logToConsole');
+const makeNumber = require('makeNumber');
 const makeString = require('makeString');
 const makeTableMap = require('makeTableMap');
 const JSON = require('JSON');
@@ -958,13 +926,13 @@ const Object = require('Object');
 // Constants – Conviva script creates window.apptracker; Conviva-hosted URL built from version (sensor.conviva.com)
 const CONVIVA_SCRIPT_BASE = 'https://sensor.conviva.com/dpi/releases/';
 const CONVIVA_SCRIPT_FILE = '/convivaAppTracker.js';
-const DEFAULT_VERSION = 'v1.5.5';
+const DEFAULT_VERSION = 'v2.0.0';
 const TRACKER_NAMESPACE = 'apptracker';
-const LOG_PREFIX = '[Conviva AppAnalytics / GTM] ';
+const LOG_PREFIX = '[Conviva DPI JS SDK / GTM] ';
 // Cohort Replay – must load and init before main SDK (same Conviva CDN pattern)
 const REPLAY_SCRIPT_BASE = 'https://sensor.conviva.com/replay/releases/';
 const REPLAY_SCRIPT_FILE = '/conviva-replay.umd.min.js';
-const REPLAY_DEFAULT_VERSION = 'v1.0.1';
+const REPLAY_DEFAULT_VERSION = 'v1.0.2';
 const REPLAY_NAMESPACE = 'ConvivaReplay';
 
 // Ensures apptracker queue stub and GlobalConvivaNamespace exist (sandbox: use createQueue/createArgumentsQueue only).
@@ -1000,7 +968,7 @@ const stringToArrayAndTrim = function(str) {
 };
 
 const onScriptFailure = function() {
-  return fail('Failed to load Conviva AppAnalytics script');
+  return fail('Failed to load Conviva DPI JS SDK script');
 };
 
 const onReplayFailure = function() {
@@ -1034,28 +1002,89 @@ const runNonInit = function() {
       break;
     }
     case 'trackRevenue': {
-      const revenueData = {};
-      revenueData.transactionId = data.revenueOrderId;
-      revenueData.totalOrderAmount = data.revenueTotalOrderAmount;
-      revenueData.currency = data.revenueCurrency;
-      if (data.revenueTaxAmount) revenueData.taxAmount = data.revenueTaxAmount;
-      if (data.revenueShippingCost) revenueData.shippingCost = data.revenueShippingCost;
-      if (data.revenueDiscount) revenueData.discount = data.revenueDiscount;
-      if (data.revenueCartSize) revenueData.cartSize = data.revenueCartSize;
-      if (data.revenuePaymentMethod) revenueData.paymentMethod = data.revenuePaymentMethod;
-      if (data.revenuePaymentProvider) revenueData.paymentProvider = data.revenuePaymentProvider;
-      if (data.revenueOrderStatus) revenueData.orderStatus = data.revenueOrderStatus;
-      if (data.revenueItemsList && getType(data.revenueItemsList) === 'array' && data.revenueItemsList.length > 0) {
-        revenueData.items = data.revenueItemsList;
+      // ── Required fields: validate, cast to correct types, bail if invalid ──
+      var totalOrderAmount = makeNumber(data.revenueTotalOrderAmount);
+      if (totalOrderAmount !== totalOrderAmount) { // NaN check
+        return fail('trackRevenue: invalid totalOrderAmount "' + data.revenueTotalOrderAmount + '". Must be a finite number.');
       }
-      var extraMeta = makeTableMap(data.revenueExtraMetadata || [], 'key', 'value');
-      if (extraMeta && isObject(extraMeta) && Object.keys(extraMeta).length > 0) {
-        for (var ek in extraMeta) { if (extraMeta.hasOwnProperty(ek)) revenueData[ek] = extraMeta[ek]; }
+      var transactionId = data.revenueOrderId != null ? makeString(data.revenueOrderId).trim() : '';
+      if (transactionId === '') {
+        return fail('trackRevenue: invalid transactionId. Must be a non-empty string.');
       }
-      if (data.revenueDataObject && isObject(data.revenueDataObject)) {
-        var robj = data.revenueDataObject;
-        for (var rk in robj) { if (robj.hasOwnProperty(rk)) revenueData[rk] = robj[rk]; }
+      var currency = data.revenueCurrency != null ? makeString(data.revenueCurrency).trim() : '';
+      if (currency === '') {
+        return fail('trackRevenue: invalid currency. Must be a non-empty string.');
       }
+
+      const revenueData = {
+        totalOrderAmount: totalOrderAmount,
+        transactionId: transactionId,
+        currency: currency
+      };
+
+      // ── Optional numeric fields: cast to number, skip if invalid ──
+      if (data.revenueTaxAmount != null && makeString(data.revenueTaxAmount).trim() !== '') {
+        var taxAmount = makeNumber(data.revenueTaxAmount);
+        if (taxAmount === taxAmount) { revenueData.taxAmount = taxAmount; }
+        else { log(LOG_PREFIX + 'trackRevenue: invalid taxAmount "' + data.revenueTaxAmount + '". Must be a number. Ignoring.'); }
+      }
+      if (data.revenueShippingCost != null && makeString(data.revenueShippingCost).trim() !== '') {
+        var shippingCost = makeNumber(data.revenueShippingCost);
+        if (shippingCost === shippingCost) { revenueData.shippingCost = shippingCost; }
+        else { log(LOG_PREFIX + 'trackRevenue: invalid shippingCost "' + data.revenueShippingCost + '". Must be a number. Ignoring.'); }
+      }
+      if (data.revenueDiscount != null && makeString(data.revenueDiscount).trim() !== '') {
+        var disc = makeNumber(data.revenueDiscount);
+        if (disc === disc) { revenueData.discount = disc; }
+        else { log(LOG_PREFIX + 'trackRevenue: invalid discount "' + data.revenueDiscount + '". Must be a number. Ignoring.'); }
+      }
+      if (data.revenueCartSize != null && makeString(data.revenueCartSize).trim() !== '') {
+        var cartSz = makeNumber(data.revenueCartSize);
+        if (cartSz === cartSz) { revenueData.cartSize = cartSz; }
+        else { log(LOG_PREFIX + 'trackRevenue: invalid cartSize "' + data.revenueCartSize + '". Must be a number. Ignoring.'); }
+      }
+
+      // ── Optional string fields: cast to string, skip if empty ──
+      if (data.revenuePaymentMethod != null) {
+        var pm = makeString(data.revenuePaymentMethod).trim();
+        if (pm !== '') revenueData.paymentMethod = pm;
+      }
+      if (data.revenuePaymentProvider != null) {
+        var pp = makeString(data.revenuePaymentProvider).trim();
+        if (pp !== '') revenueData.paymentProvider = pp;
+      }
+      if (data.revenueOrderStatus != null) {
+        var os = makeString(data.revenueOrderStatus).trim();
+        if (os !== '') revenueData.orderStatus = os;
+      }
+
+      // ── Items: must be an array, skip if not ──
+      if (data.revenueItemsList != null) {
+        if (getType(data.revenueItemsList) === 'array' && data.revenueItemsList.length > 0) {
+          revenueData.items = data.revenueItemsList;
+        } else if (getType(data.revenueItemsList) !== 'array') {
+          log(LOG_PREFIX + 'trackRevenue: items must be an array, received "' + getType(data.revenueItemsList) + '". Ignoring.');
+        }
+      }
+
+      // ── extraMetadata: merge table + variable into nested object (matches SDK API) ──
+      var extraMetadata = {};
+      var tableMeta = makeTableMap(data.revenueExtraMetadata || [], 'key', 'value');
+      if (tableMeta && isObject(tableMeta)) {
+        for (var ek in tableMeta) { if (tableMeta.hasOwnProperty(ek)) extraMetadata[ek] = tableMeta[ek]; }
+      }
+      if (data.revenueDataObject != null) {
+        if (isObject(data.revenueDataObject)) {
+          var robj = data.revenueDataObject;
+          for (var rk in robj) { if (robj.hasOwnProperty(rk)) extraMetadata[rk] = robj[rk]; }
+        } else {
+          log(LOG_PREFIX + 'trackRevenue: revenueDataObject must be a plain object, received "' + getType(data.revenueDataObject) + '". Ignoring.');
+        }
+      }
+      if (Object.keys(extraMetadata).length > 0) {
+        revenueData.extraMetadata = extraMetadata;
+      }
+
       apptracker('trackCustomEvent', { name: 'conviva_revenue_event', data: revenueData });
       break;
     }
@@ -1265,7 +1294,7 @@ ___WEB_PERMISSIONS___
                   { "type": 1, "string": "ConvivaReplay" },
                   { "type": 8, "boolean": true },
                   { "type": 8, "boolean": true },
-                  { "type": 8, "boolean": false }
+                  { "type": 8, "boolean": true }
                 ]
               },
               {
@@ -1376,10 +1405,6 @@ ___WEB_PERMISSIONS___
                 "type": 1,
                 "string": "https://sensor.conviva.com/replay/releases/*"
               },
-              {
-                "type": 1,
-                "string": "https://*.conviva.com/*"
-              }
             ]
           }
         }
@@ -1474,7 +1499,7 @@ scenarios:
     });
     runCode(mockData);
     assertApi('gtmOnSuccess').wasCalled();
-- name: trackRevenue tag calls apptracker with conviva_revenue_event
+- name: trackRevenue tag calls apptracker with correct types
   code: |-
     mockData.type = 'trackRevenue';
     mockData.revenueOrderId = 'ord_123';
@@ -1485,12 +1510,45 @@ scenarios:
         assertThat(cmd).isEqualTo('trackCustomEvent');
         assertThat(arg.name).isEqualTo('conviva_revenue_event');
         assertThat(arg.data.transactionId).isEqualTo('ord_123');
-        assertThat(arg.data.totalOrderAmount).isEqualTo('99.99');
+        assertThat(arg.data.totalOrderAmount).isEqualTo(99.99);
         assertThat(arg.data.currency).isEqualTo('USD');
       };
     });
     runCode(mockData);
     assertApi('gtmOnSuccess').wasCalled();
+- name: trackRevenue fails when totalOrderAmount is not a number
+  code: |-
+    mockData.type = 'trackRevenue';
+    mockData.revenueOrderId = 'ord_123';
+    mockData.revenueTotalOrderAmount = 'not_a_number';
+    mockData.revenueCurrency = 'USD';
+    mock('copyFromWindow', function(key) {
+      return function() {};
+    });
+    runCode(mockData);
+    assertApi('gtmOnFailure').wasCalled();
+- name: trackRevenue fails when transactionId is empty
+  code: |-
+    mockData.type = 'trackRevenue';
+    mockData.revenueOrderId = '';
+    mockData.revenueTotalOrderAmount = '50.00';
+    mockData.revenueCurrency = 'USD';
+    mock('copyFromWindow', function(key) {
+      return function() {};
+    });
+    runCode(mockData);
+    assertApi('gtmOnFailure').wasCalled();
+- name: trackRevenue fails when currency is empty
+  code: |-
+    mockData.type = 'trackRevenue';
+    mockData.revenueOrderId = 'ord_123';
+    mockData.revenueTotalOrderAmount = '50.00';
+    mockData.revenueCurrency = '';
+    mock('copyFromWindow', function(key) {
+      return function() {};
+    });
+    runCode(mockData);
+    assertApi('gtmOnFailure').wasCalled();
 - name: setCustomTags tag calls apptracker with tags object
   code: |-
     mockData.type = 'setCustomTags';
@@ -1535,8 +1593,422 @@ scenarios:
     });
     runCode(mockData);
     assertApi('gtmOnFailure').wasCalled();
+- name: Init with Cohort Replay loads replay script first then main script
+  code: |-
+    mockData.type = 'init';
+    mockData.convivaCustomerKey = 'test_key';
+    mockData.appId = 'Test App';
+    mockData.scriptSource = 'conviva_hosted';
+    mockData.initWithCohortReplay = true;
+    mockData.replayScriptSource = 'conviva_hosted';
+    mockData.replayScriptVersion = 'v1.0.1';
+
+    var loadOrder = [];
+    mock('injectScript', function(url, success, failure, id) {
+      loadOrder.push(id);
+      if (id === 'conviva_replay') {
+        mock('copyFromWindow', function(key) {
+          if (key === 'ConvivaReplay') {
+            return { init: function(k) { assertThat(k).isEqualTo('test_key'); } };
+          }
+          return function() {};
+        });
+      }
+      success();
+    });
+    mock('copyFromWindow', function(key) {
+      return function() {};
+    });
+
+    runCode(mockData);
+    assertThat(loadOrder[0]).isEqualTo('conviva_replay');
+    assertThat(loadOrder[1]).isEqualTo('conviva_appanalytics');
+    assertApi('gtmOnSuccess').wasCalled();
+- name: Init with Cohort Replay disabled does not load replay script
+  code: |-
+    mockData.type = 'init';
+    mockData.convivaCustomerKey = 'test_key';
+    mockData.appId = 'Test App';
+    mockData.scriptSource = 'conviva_hosted';
+    mockData.initWithCohortReplay = false;
+
+    var loadedIds = [];
+    mock('injectScript', function(url, success, failure, id) {
+      loadedIds.push(id);
+      success();
+    });
+    mock('copyFromWindow', function(key) {
+      return function() {};
+    });
+
+    runCode(mockData);
+    assertThat(loadedIds.length).isEqualTo(1);
+    assertThat(loadedIds[0]).isEqualTo('conviva_appanalytics');
+    assertApi('gtmOnSuccess').wasCalled();
+- name: Replay script failure calls gtmOnFailure
+  code: |-
+    mockData.type = 'init';
+    mockData.convivaCustomerKey = 'test_key';
+    mockData.appId = 'Test App';
+    mockData.scriptSource = 'conviva_hosted';
+    mockData.initWithCohortReplay = true;
+    mockData.replayScriptSource = 'conviva_hosted';
+    mockData.replayScriptVersion = 'v1.0.1';
+
+    mock('injectScript', function(url, success, failure, id) {
+      if (id === 'conviva_replay') {
+        failure();
+      } else {
+        success();
+      }
+    });
+    mock('copyFromWindow', function(key) {
+      return function() {};
+    });
+
+    runCode(mockData);
+    assertApi('gtmOnFailure').wasCalled();
+- name: Main script failure calls gtmOnFailure
+  code: |-
+    mockData.type = 'init';
+    mockData.convivaCustomerKey = 'test_key';
+    mockData.appId = 'Test App';
+    mockData.scriptSource = 'conviva_hosted';
+
+    mock('injectScript', function(url, success, failure, id) {
+      failure();
+    });
+    mock('copyFromWindow', function(key) {
+      return function() {};
+    });
+
+    runCode(mockData);
+    assertApi('gtmOnFailure').wasCalled();
+- name: Customer-hosted script URL is used when source is customer_hosted
+  code: |-
+    mockData.type = 'init';
+    mockData.convivaCustomerKey = 'test_key';
+    mockData.appId = 'Test App';
+    mockData.scriptSource = 'customer_hosted';
+    mockData.scriptUrl = 'https://cdn.example.com/convivaAppTracker.js';
+
+    var injectedUrl;
+    mock('injectScript', function(url, success, failure, id) {
+      injectedUrl = url;
+      success();
+    });
+    mock('copyFromWindow', function(key) {
+      return function() {};
+    });
+
+    runCode(mockData);
+    assertThat(injectedUrl).isEqualTo('https://cdn.example.com/convivaAppTracker.js');
+    assertApi('gtmOnSuccess').wasCalled();
+- name: Customer-hosted script URL missing fails
+  code: |-
+    mockData.type = 'init';
+    mockData.convivaCustomerKey = 'test_key';
+    mockData.appId = 'Test App';
+    mockData.scriptSource = 'customer_hosted';
+    mockData.scriptUrl = '';
+
+    mock('copyFromWindow', function(key) {
+      return function() {};
+    });
+
+    runCode(mockData);
+    assertApi('gtmOnFailure').wasCalled();
+- name: Customer-hosted replay URL is used when replay source is customer_hosted
+  code: |-
+    mockData.type = 'init';
+    mockData.convivaCustomerKey = 'test_key';
+    mockData.appId = 'Test App';
+    mockData.scriptSource = 'conviva_hosted';
+    mockData.initWithCohortReplay = true;
+    mockData.replayScriptSource = 'customer_hosted';
+    mockData.replayScriptUrl = 'https://cdn.example.com/conviva-replay.js';
+
+    var injectedUrls = [];
+    mock('injectScript', function(url, success, failure, id) {
+      injectedUrls.push(url);
+      if (id === 'conviva_replay') {
+        mock('copyFromWindow', function(key) {
+          if (key === 'ConvivaReplay') return { init: function() {} };
+          return function() {};
+        });
+      }
+      success();
+    });
+    mock('copyFromWindow', function(key) {
+      return function() {};
+    });
+
+    runCode(mockData);
+    assertThat(injectedUrls[0]).isEqualTo('https://cdn.example.com/conviva-replay.js');
+    assertApi('gtmOnSuccess').wasCalled();
+- name: Customer-hosted replay URL missing fails
+  code: |-
+    mockData.type = 'init';
+    mockData.convivaCustomerKey = 'test_key';
+    mockData.appId = 'Test App';
+    mockData.scriptSource = 'conviva_hosted';
+    mockData.initWithCohortReplay = true;
+    mockData.replayScriptSource = 'customer_hosted';
+    mockData.replayScriptUrl = '';
+
+    mock('copyFromWindow', function(key) {
+      return function() {};
+    });
+
+    runCode(mockData);
+    assertApi('gtmOnFailure').wasCalled();
+- name: Init sets userId when provided
+  code: |-
+    mockData.type = 'init';
+    mockData.convivaCustomerKey = 'test_key';
+    mockData.appId = 'Test App';
+    mockData.scriptSource = 'conviva_hosted';
+    mockData.initUserId = 'user_abc';
+
+    var commands = [];
+    mock('injectScript', function(url, success, failure) { success(); });
+    mock('copyFromWindow', function(key) {
+      return function(cmd, arg) { commands.push(cmd); };
+    });
+
+    runCode(mockData);
+    assertThat(commands).contains('setUserId');
+    assertApi('gtmOnSuccess').wasCalled();
+- name: Init sets clientId when provided
+  code: |-
+    mockData.type = 'init';
+    mockData.convivaCustomerKey = 'test_key';
+    mockData.appId = 'Test App';
+    mockData.scriptSource = 'conviva_hosted';
+    mockData.initClientId = 'client_xyz';
+
+    var commands = [];
+    mock('injectScript', function(url, success, failure) { success(); });
+    mock('copyFromWindow', function(key) {
+      return function(cmd, arg) { commands.push(cmd); };
+    });
+
+    runCode(mockData);
+    assertThat(commands).contains('setClientId');
+    assertApi('gtmOnSuccess').wasCalled();
+- name: Init sets default custom tags when provided
+  code: |-
+    mockData.type = 'init';
+    mockData.convivaCustomerKey = 'test_key';
+    mockData.appId = 'Test App';
+    mockData.scriptSource = 'conviva_hosted';
+    mockData.initCustomTags = [{ key: 'env', value: 'prod' }];
+
+    var commands = [];
+    mock('injectScript', function(url, success, failure) { success(); });
+    mock('copyFromWindow', function(key) {
+      return function(cmd, arg) { commands.push(cmd); };
+    });
+
+    runCode(mockData);
+    assertThat(commands).contains('setCustomTags');
+    assertApi('gtmOnSuccess').wasCalled();
+- name: Unknown tag type fails
+  code: |-
+    mockData.type = 'nonExistentType';
+    mock('copyFromWindow', function(key) {
+      return function() {};
+    });
+
+    runCode(mockData);
+    assertApi('gtmOnFailure').wasCalled();
+- name: trackError with filename and error object
+  code: |-
+    mockData.type = 'trackError';
+    mockData.trackErrorMessage = 'Something broke';
+    mockData.trackErrorFilename = 'app.js';
+    mockData.trackErrorObject = { stack: 'Error at line 42' };
+    mock('copyFromWindow', function(key) {
+      return function(cmd, arg) {
+        assertThat(cmd).isEqualTo('trackError');
+        assertThat(arg.message).isEqualTo('Something broke');
+        assertThat(arg.filename).isEqualTo('app.js');
+        assertThat(arg.error).isEqualTo({ stack: 'Error at line 42' });
+      };
+    });
+    runCode(mockData);
+    assertApi('gtmOnSuccess').wasCalled();
+- name: trackCustomEvent with eventDataObject merges with table data
+  code: |-
+    mockData.type = 'trackCustomEvent';
+    mockData.eventName = 'merge_test';
+    mockData.eventData = [{ name: 'tableKey', value: 'tableVal' }];
+    mockData.eventDataObject = { objKey: 'objVal' };
+    mock('copyFromWindow', function(key) {
+      return function(cmd, arg) {
+        assertThat(cmd).isEqualTo('trackCustomEvent');
+        assertThat(arg.data.tableKey).isEqualTo('tableVal');
+        assertThat(arg.data.objKey).isEqualTo('objVal');
+      };
+    });
+    runCode(mockData);
+    assertApi('gtmOnSuccess').wasCalled();
+- name: trackRevenue with optional fields casts numbers correctly
+  code: |-
+    mockData.type = 'trackRevenue';
+    mockData.revenueOrderId = 'ord_456';
+    mockData.revenueTotalOrderAmount = '150.00';
+    mockData.revenueCurrency = 'EUR';
+    mockData.revenueTaxAmount = '12.50';
+    mockData.revenueShippingCost = '5.99';
+    mockData.revenueDiscount = '10.00';
+    mockData.revenueCartSize = '3';
+    mockData.revenuePaymentMethod = 'card';
+    mockData.revenuePaymentProvider = 'Stripe';
+    mockData.revenueOrderStatus = 'completed';
+    mock('copyFromWindow', function(key) {
+      return function(cmd, arg) {
+        assertThat(arg.data.totalOrderAmount).isEqualTo(150);
+        assertThat(arg.data.taxAmount).isEqualTo(12.5);
+        assertThat(arg.data.shippingCost).isEqualTo(5.99);
+        assertThat(arg.data.discount).isEqualTo(10);
+        assertThat(arg.data.cartSize).isEqualTo(3);
+        assertThat(arg.data.paymentMethod).isEqualTo('card');
+        assertThat(arg.data.paymentProvider).isEqualTo('Stripe');
+        assertThat(arg.data.orderStatus).isEqualTo('completed');
+      };
+    });
+    runCode(mockData);
+    assertApi('gtmOnSuccess').wasCalled();
+- name: trackRevenue puts extraMetadata as nested object
+  code: |-
+    mockData.type = 'trackRevenue';
+    mockData.revenueOrderId = 'ord_789';
+    mockData.revenueTotalOrderAmount = '25.00';
+    mockData.revenueCurrency = 'USD';
+    mockData.revenueExtraMetadata = [{ key: 'promoCode', value: 'SAVE10' }];
+    mockData.revenueDataObject = { campaignId: 'camp_1' };
+    mock('copyFromWindow', function(key) {
+      return function(cmd, arg) {
+        assertThat(arg.data.extraMetadata.promoCode).isEqualTo('SAVE10');
+        assertThat(arg.data.extraMetadata.campaignId).isEqualTo('camp_1');
+      };
+    });
+    runCode(mockData);
+    assertApi('gtmOnSuccess').wasCalled();
+- name: trackRevenue with line items array
+  code: |-
+    mockData.type = 'trackRevenue';
+    mockData.revenueOrderId = 'ord_items';
+    mockData.revenueTotalOrderAmount = '49.99';
+    mockData.revenueCurrency = 'USD';
+    mockData.revenueItemsList = [{ productId: 'p1', name: 'Widget', quantity: '2' }];
+    mock('copyFromWindow', function(key) {
+      return function(cmd, arg) {
+        assertThat(arg.data.totalOrderAmount).isEqualTo(49.99);
+        assertThat(arg.data.items.length).isEqualTo(1);
+        assertThat(arg.data.items[0].productId).isEqualTo('p1');
+      };
+    });
+    runCode(mockData);
+    assertApi('gtmOnSuccess').wasCalled();
+- name: trackRevenue ignores invalid numeric optional fields gracefully
+  code: |-
+    mockData.type = 'trackRevenue';
+    mockData.revenueOrderId = 'ord_edge';
+    mockData.revenueTotalOrderAmount = '100';
+    mockData.revenueCurrency = 'USD';
+    mockData.revenueTaxAmount = 'not_a_number';
+    mockData.revenueShippingCost = 'abc';
+    mockData.revenuePaymentMethod = 'card';
+    mock('copyFromWindow', function(key) {
+      return function(cmd, arg) {
+        assertThat(arg.data.totalOrderAmount).isEqualTo(100);
+        assertThat(arg.data.taxAmount).isEqualTo(undefined);
+        assertThat(arg.data.shippingCost).isEqualTo(undefined);
+        assertThat(arg.data.paymentMethod).isEqualTo('card');
+      };
+    });
+    runCode(mockData);
+    assertApi('gtmOnSuccess').wasCalled();
+- name: trackRevenue skips empty optional string fields
+  code: |-
+    mockData.type = 'trackRevenue';
+    mockData.revenueOrderId = 'ord_str';
+    mockData.revenueTotalOrderAmount = '75';
+    mockData.revenueCurrency = 'GBP';
+    mockData.revenuePaymentMethod = '';
+    mockData.revenuePaymentProvider = '  ';
+    mockData.revenueOrderStatus = 'pending';
+    mock('copyFromWindow', function(key) {
+      return function(cmd, arg) {
+        assertThat(arg.data.paymentMethod).isEqualTo(undefined);
+        assertThat(arg.data.paymentProvider).isEqualTo(undefined);
+        assertThat(arg.data.orderStatus).isEqualTo('pending');
+      };
+    });
+    runCode(mockData);
+    assertApi('gtmOnSuccess').wasCalled();
+- name: Init with custom script version uses correct URL
+  code: |-
+    mockData.type = 'init';
+    mockData.convivaCustomerKey = 'test_key';
+    mockData.appId = 'Test App';
+    mockData.scriptSource = 'conviva_hosted';
+    mockData.scriptVersionCustom = '2.0.0';
+
+    var injectedUrl;
+    mock('injectScript', function(url, success, failure, id) {
+      injectedUrl = url;
+      success();
+    });
+    mock('copyFromWindow', function(key) {
+      return function() {};
+    });
+
+    runCode(mockData);
+    assertThat(injectedUrl).isEqualTo('https://sensor.conviva.com/dpi/releases/2.0.0/convivaAppTracker.js');
+    assertApi('gtmOnSuccess').wasCalled();
+- name: Non-init trackCustomEvent when apptracker is not a function fails
+  code: |-
+    mockData.type = 'trackCustomEvent';
+    mockData.eventName = 'test';
+    mock('copyFromWindow', function(key) {
+      return 'not_a_function';
+    });
+    runCode(mockData);
+    assertApi('gtmOnFailure').wasCalled();
+- name: Conviva-hosted replay uses correct versioned URL
+  code: |-
+    mockData.type = 'init';
+    mockData.convivaCustomerKey = 'test_key';
+    mockData.appId = 'Test App';
+    mockData.scriptSource = 'conviva_hosted';
+    mockData.initWithCohortReplay = true;
+    mockData.replayScriptSource = 'conviva_hosted';
+    mockData.replayScriptVersion = 'v1.0.1';
+    mockData.replayScriptVersionCustom = '';
+
+    var injectedUrls = [];
+    mock('injectScript', function(url, success, failure, id) {
+      injectedUrls.push(url);
+      if (id === 'conviva_replay') {
+        mock('copyFromWindow', function(key) {
+          if (key === 'ConvivaReplay') return { init: function() {} };
+          return function() {};
+        });
+      }
+      success();
+    });
+    mock('copyFromWindow', function(key) {
+      return function() {};
+    });
+
+    runCode(mockData);
+    assertThat(injectedUrls[0]).isEqualTo('https://sensor.conviva.com/replay/releases/v1.0.1/conviva-replay.umd.min.js');
+    assertApi('gtmOnSuccess').wasCalled();
 
 
 ___NOTES___
 
-Conviva AppAnalytics GTM Template. Created for Community Template Gallery.
+Conviva DPI JS SDK GTM Template. Created for Community Template Gallery.
