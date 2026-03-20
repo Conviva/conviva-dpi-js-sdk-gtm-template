@@ -648,7 +648,7 @@ ___TEMPLATE_PARAMETERS___
     "macrosInSelect": true,
     "selectItems": [],
     "simpleValueType": true,
-    "help": "Optional: select a GTM variable that returns an object. Merged with table above if both set.",
+    "help": "Expected type: object. Optional GTM variable returning a key-value object. Merged with the data table above if both are set.",
     "notSetText": "Don't set",
     "enablingConditions": [
       {
@@ -659,7 +659,7 @@ ___TEMPLATE_PARAMETERS___
     ]
   },
   {
-    "help": "Total order amount (required for revenue metrics).",
+    "help": "Total order amount (required). Expected type: number. Non-numeric values will cause the tag to fail.",
     "valueValidators": [{ "type": "NON_EMPTY" }],
     "displayName": "Total order amount*",
     "simpleValueType": true,
@@ -671,7 +671,7 @@ ___TEMPLATE_PARAMETERS___
     ]
   },
   {
-    "help": "Order ID / transaction ID (required).",
+    "help": "Order ID / transaction ID (required). Expected type: string. Empty values will cause the tag to fail.",
     "valueValidators": [{ "type": "NON_EMPTY" }],
     "displayName": "Order ID (transaction ID)*",
     "simpleValueType": true,
@@ -683,7 +683,7 @@ ___TEMPLATE_PARAMETERS___
     ]
   },
   {
-    "help": "Currency code (required for revenue metrics).",
+    "help": "ISO 4217 currency code (required). Expected type: string (e.g. USD, EUR, GBP). Empty values will cause the tag to fail.",
     "valueValidators": [{ "type": "NON_EMPTY" }],
     "displayName": "Currency*",
     "simpleValueType": true,
@@ -699,6 +699,7 @@ ___TEMPLATE_PARAMETERS___
     "simpleValueType": true,
     "name": "revenueTaxAmount",
     "type": "TEXT",
+    "help": "Optional. Expected type: number. Non-numeric values will be skipped.",
     "enablingConditions": [
       { "paramName": "type", "paramValue": "trackRevenue", "type": "EQUALS" }
     ]
@@ -708,6 +709,7 @@ ___TEMPLATE_PARAMETERS___
     "simpleValueType": true,
     "name": "revenueShippingCost",
     "type": "TEXT",
+    "help": "Optional. Expected type: number. Non-numeric values will be skipped.",
     "enablingConditions": [
       { "paramName": "type", "paramValue": "trackRevenue", "type": "EQUALS" }
     ]
@@ -717,6 +719,7 @@ ___TEMPLATE_PARAMETERS___
     "simpleValueType": true,
     "name": "revenueDiscount",
     "type": "TEXT",
+    "help": "Optional. Expected type: number. Non-numeric values will be skipped.",
     "enablingConditions": [
       { "paramName": "type", "paramValue": "trackRevenue", "type": "EQUALS" }
     ]
@@ -727,6 +730,7 @@ ___TEMPLATE_PARAMETERS___
     "name": "revenueCartSize",
     "type": "TEXT",
     "valueHint": "e.g. 3",
+    "help": "Optional. Expected type: number (integer). Non-numeric values will be skipped.",
     "enablingConditions": [
       { "paramName": "type", "paramValue": "trackRevenue", "type": "EQUALS" }
     ]
@@ -739,7 +743,7 @@ ___TEMPLATE_PARAMETERS___
     "selectItems": [],
     "simpleValueType": true,
     "notSetText": "Don't set",
-    "help": "GTM variable that returns an array of line-item objects. Passed through as-is to the event. Recommended keys per item (for backend): productId, name, sku, category, unitPrice, quantity, discount, brand, variant; other keys are sent as-is and can be mapped in the backend.",
+    "help": "Expected type: array of objects. Select a GTM variable that returns an array of line-item objects. Passed through as-is to the event. Recommended keys per item: productId, name, sku, category, unitPrice, quantity, discount, brand, variant; other keys are sent as-is.",
     "enablingConditions": [
       { "paramName": "type", "paramValue": "trackRevenue", "type": "EQUALS" }
     ]
@@ -750,6 +754,7 @@ ___TEMPLATE_PARAMETERS___
     "name": "revenuePaymentMethod",
     "type": "TEXT",
     "valueHint": "e.g. card, ApplePay, PayPal",
+    "help": "Optional. Expected type: string. Empty values will be skipped.",
     "enablingConditions": [
       { "paramName": "type", "paramValue": "trackRevenue", "type": "EQUALS" }
     ]
@@ -760,6 +765,7 @@ ___TEMPLATE_PARAMETERS___
     "name": "revenuePaymentProvider",
     "type": "TEXT",
     "valueHint": "e.g. Stripe, Adyen",
+    "help": "Optional. Expected type: string. Empty values will be skipped.",
     "enablingConditions": [
       { "paramName": "type", "paramValue": "trackRevenue", "type": "EQUALS" }
     ]
@@ -769,6 +775,7 @@ ___TEMPLATE_PARAMETERS___
     "simpleValueType": true,
     "name": "revenueOrderStatus",
     "type": "TEXT",
+    "help": "Optional. Expected type: string. Empty values will be skipped.",
     "enablingConditions": [
       { "paramName": "type", "paramValue": "trackRevenue", "type": "EQUALS" }
     ]
@@ -782,7 +789,7 @@ ___TEMPLATE_PARAMETERS___
     ],
     "type": "SIMPLE_TABLE",
     "newRowButtonText": "Add row",
-    "help": "Extra key/value pairs to include in the revenue event payload.",
+    "help": "Expected type: object (key-value pairs). Sent as extraMetadata in the revenue event payload. Merged with the variable below if both are set.",
     "enablingConditions": [
       { "paramName": "type", "paramValue": "trackRevenue", "type": "EQUALS" }
     ]
@@ -794,7 +801,7 @@ ___TEMPLATE_PARAMETERS___
     "macrosInSelect": true,
     "selectItems": [],
     "simpleValueType": true,
-    "help": "Optional: GTM variable returning an object. Merged with the fields above.",
+    "help": "Expected type: object. Optional GTM variable returning a key-value object. Sent as extraMetadata, merged with the metadata table above if both are set.",
     "notSetText": "Don't set",
     "enablingConditions": [
       { "paramName": "type", "paramValue": "trackRevenue", "type": "EQUALS" }
